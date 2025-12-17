@@ -1,0 +1,23 @@
+{
+  "name": "applytrack-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmol520/ApplyTrack-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anmol520/ApplyTrack-API/issues"
+  },
+  "homepage": "https://github.com/anmol520/ApplyTrack-API#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.0.1"
+  }
+}
