@@ -1,8 +1,14 @@
  const mongoose = require('mongoose');
- const Schema = mongoose.Schema();
+ const Schema = mongoose.Schema; 
 
  const companySchema =new Schema(
-    {
+    {  
+        companyName:{
+            type:String
+        },
+        companyWebsite:{
+            type:String
+        },
         jobDiscription:{
             type:String,
             required:true
@@ -24,6 +30,11 @@
             required: true,
             unique: true
      
+        },
+        condidateApplied:{
+            type:Number
         }
+        
     }
  )
+ module.exports = Schema.model('Company',companySchema)
