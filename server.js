@@ -13,6 +13,7 @@ app.use(express.json());
 connectDB();
 
 app.use('/register', require('./routes/register'));
+app.use('/auth',require('./routes/auth'));
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');

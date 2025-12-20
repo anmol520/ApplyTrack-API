@@ -10,16 +10,14 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    role:{
-        student:{
-            type:Number  ,
-            default:2001
-        },
-        company:{
-            type:Number
-        }
-    },
-    refreshToken:String
+    role: {
+        type: String,
+        enum: ['student', 'company', 'admin'],
+        default: 'student'
+},
+    refreshToken: {
+        type:String
+    }
 
 })
 
