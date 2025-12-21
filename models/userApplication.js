@@ -1,30 +1,31 @@
- const mongoose = require('mongoose');
- const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
- const userApplicationSchema = new Schema({
-    companyName:{
-        type:String
-    },
-    status:{
-        Applied:{
-            type:Boolean
-        },
-        Pending:{
-            type:Boolean
-        },
-        Rejected:{
-            type:Boolean
-        }
-    },
-    userId: {
+const userApplicationSchema = new Schema({
+  company: {   
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Company",
+    required: true
+     
+  },
+  user: {  
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
-    unique: true  
+    required: true
+     
   },
-  appliedDate:{
-    type:Date,
-    default:Date.now
+  status: {
+    type: String,
+    enum: ['Applied', 'Pending', 'Rejected'],  
+    default: 'Applied'
+  },
+  appliedDate: {
+    type: Date,
+    default: Date.now
   }
- })
- module.exports = mongoose.model('UserApplication',userApplicationSchema)
+});
+
+
+userApplicationSchema.index({ user: 1, company: 1 }, { unique: true });
+
+module.exports = mongoose.model('UserApplication', userApplicationSchema);

@@ -1,5 +1,4 @@
 require('dotenv').config()
-require('./controllers/registercontroller');
 
 const express = require('express');
 const mongoose=require('mongoose');
@@ -18,7 +17,9 @@ app.use(cookieParser());
 
 app.use('/register', require('./routes/register'));
 app.use('/auth',require('./routes/auth'));
-app.use('/logout',require('./routes/logout'))
+app.use('/logout',require('./routes/logout'));
+app.use('/apply'),require('./routes/jobApplication');
+app.use('./jobPost',require('./routes/jobpost')) ;
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
